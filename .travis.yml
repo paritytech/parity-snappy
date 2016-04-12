@@ -9,8 +9,11 @@ before_install:
   - docker run -d --name parity-arm ethcore:parity-arm
 
 script:
+  - docker start parity-arm
   - docker ps | grep -q parity-arm
-  - docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity .
+  - docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity parity-arm
+  - docker stop parity-arm
+  - docker rm parity-arm
 
 before_deploy:
   - bash tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
