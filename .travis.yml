@@ -1,29 +1,25 @@
 sudo: required
 language: generic
 
-env:
-  global:
-    - PROJECT_NAME=parity-arm
-
 services:
   - docker
 
 before_install:
-  - docker build --no-cache -t ethcore:${PROJECT_NAME} .
-  - docker run -d --name ${PROJECT_NAME} ethcore:${PROJECT_NAME}
+  - docker build -t ethcore:parity-arm .
+  - docker run -d --name parity-arm ethcore:parity-arm
 
 script:
-  - docker ps | grep -q ${PROJECT_NAME}
-  - docker cp ${PROJECT_NAME}:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity .
+  - docker ps | grep -q parity-arm
+  - docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity .
 
 before_deploy:
-  - bash tar czf ${PROJECT_NAME}-${TRAVIS_TAG}.tar.gz *
+  - bash tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
 deploy:
   provider: releases
   api_key:
     secure: "jlypaOqxifXFIwGtmr+hNeSA6doaTtQy1k3ZJSP7SWhvIKXe5O+1i2fnsvqXapvW0fFoe8F40u/eRs6+tB7JhXjsnauMyzDFaWDS3MFQSqGLo6pvLoRudntHK99ZGxww8mlOs7Bj1snPIckkw2Rbgu4VPVQ3JDUW/3peJWrkK5EMvH/lGiwDsSY7KmtripCylZCpoLypeCCZaj2TBo3LBCYf84xDcAD2FRDG7Q1WKId/t1YaBr4Ri/yZX98mHAWJGhhBKbdGkw2kTrJlF+L9x9sSzEQDl8qhVVb3AHiRhXJb0YK0tZuNETU5OlSWFVO/kdTheMStvXRzyQ6qoig+wd3oz+UO0Y76Y0b65w7c8ibDNeWrSb2fVUEXoazLIUaJZWj8rDMR22vfcZe1c/wZL5LArMhcCwyWOpHvUfgclTzDSimrkUn7n9er6hr2HvclASUeoU6CStnupweGGazW54EVGsNlfoNrMEFMBHNXP2rjAjQiuaDI9xf2oS7c7x35Ye24bcjvF+s2BFDgCRvbAIyZq4r6W66to4gy39cfhE6l70j1sH0teLMa+2woku+fIpUMWio3Qvg24Ga0hDh79U+VVl7VP0znQV/pxTce27EyD1Trs3U2vPKFrEH3LdxNN36g6Ea7aJDwedhzhNOkOu+VOJf9h9YB76/LmCpUQ0A="
   skip_cleanup: true
-  file: ${PROJECT_NAME}-${TRAVIS_TAG}.tar.gz
+  file: parity-arm-${TRAVIS_TAG}.tar.gz
   on:
     tags: true
 branches:
