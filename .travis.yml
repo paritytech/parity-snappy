@@ -14,9 +14,7 @@ script:
   - docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity parity-arm
   - docker stop parity-arm
   - docker rm parity-arm
-
-before_deploy:
-  - bash tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
+  - tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
 deploy:
   provider: releases
   api_key:
