@@ -27,4 +27,4 @@ branches:
 notifications:
   slack:
     rooms:
-    - ethereum-ru:KjmnPZnr0DRngeDZvDkthlCz#chatops
+    - ethcore:4EGxt9WP6AS7uX4JKXSfR9vi#chatops
