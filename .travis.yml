@@ -1,0 +1,30 @@
+sudo: required
+language: generic
+services:
+- docker
+before_install:
+- docker build -t ethcore:parity-arm .
+- docker run -d --name parity-arm ethcore:parity-arm
+script:
+- docker start parity-arm
+- docker ps
+- docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity
+  parity-arm
+- docker stop parity-arm
+- docker rm parity-arm
+- tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
+deploy:
+  provider: releases
+  api_key:
+    secure: O4snteGX/bpM7agDKGE8F4swqV30iu4SgCETUFBONVt5V4MCdLyayFmasPkWxxxDsbuTyZj6J5ZLA4p6YQYjGqWG/aTM8gjpZLQtasIvQtArnkJLLKAzliwCIETzMMHuYEpLmxQ5h4Wi9yFrzXXAFrmnKdsZYUGZ/LBQYvcoUq0x6K5ajzeHqcLYQQtkz1PSNZ5oZecTiuK1KJKLjCjlr+fv3sSI+5VaELQvf8oI2j8I3tuA1rHKodKLkLpGVNN8ScmHHQ+84irYWDUVSZpRhZ1OrHzIKtmq+gk/ai2KG+IQf/EXzn/n7BtHqUMjPAg+KpSqV7hPQ6c9lmdB65+KnJqXv760kwhRGHp0job1SVTyMr8iEUwRfHAmqud/8kzJRP46ynr3o7FKYuaqwMalitrPbfI0qvhsG2Btm7zFzi3ucZVrqHxwvuUE0Uop8Y0hQlcHRkjfh0BQhLEwRrgxfTL1R69gqlAwmI2Rp+/efBuG6nm4vw1i7oy2oVwuwmxDx51BtKftGcs6Y+Gxd9z4JcAvUb+Gm9PMM55BJZRcJDw5eKKNPkwNCCTmoZb4EEtPF/st8auvDGXmsqjOhatBD1HVRbzaOaD9fFo7JVcQ692jqEfSYnnRRl1P/Xv2w3buSNGVRNZwjn7DLKmv8VfCTHPUDY+P7ftcT3POJAPBmc4=
+  file: parity-arm-${TRAVIS_TAG}.tar.gz
+  on:
+    tags: true
+branches:
+  only:
+  - master
+  - "/^v\\d+\\.\\d+\\.\\d+.*$/"
+notifications:
+  slack:
+    rooms:
+    - ethereum-ru:KjmnPZnr0DRngeDZvDkthlCz#chatops
