@@ -13,10 +13,10 @@ RUN apt-get -y update && \
 RUN curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
 ENV RUST_TARGETS="arm-unknown-linux-gnueabihf"
 # multirust override beta
-RUN multirust override stable
+RUN multirust override beta
 
 # multirust add arm--linux-gnuabhf toolchain
-RUN multirust add-target stable arm-unknown-linux-gnueabihf
+RUN multirust add-target beta arm-unknown-linux-gnueabihf
 
 # show backtraces
 ENV RUST_BACKTRACE 1
