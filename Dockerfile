@@ -16,7 +16,7 @@ ENV RUST_TARGETS="arm-unknown-linux-gnueabihf"
 #RUN multirust override beta
 
 # multirust add arm--linux-gnuabhf toolchain
-RUN multirust add-target arm-unknown-linux-gnueabihf
+RUN multirust add-target stable arm-unknown-linux-gnueabihf
 
 # show backtraces
 ENV RUST_BACKTRACE 1
