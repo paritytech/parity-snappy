@@ -1,0 +1,27 @@
+#!/bin/sh
+set -e
+
+platform=$(uname -i)
+
+case $platform in
+#   x86_64)
+#        plat_abi=x86_64-linux-gnu
+#        ;;
+    armv*l)
+        plat_abi=arm-linux-gnueabihf
+        ;;
+#    i386)
+#        plat_abi=i386-linux-gnu
+#	;;
+#    arch64)
+#	plat_abi=arch64-linux-gnu    
+#    	;;
+    *)
+        echo "unknown platform for start parity: $platform. coming soon..."
+        ;;
+esac
+# start parity daemon
+exec ${SNAP_APP_PATH}/bin/$plat_abi/parity --pruning "fast" --rpc --rpcport "8545" --rpcaddr "0.0.0.0" --identity "Ubuntu Core $plat_abi"  --force-sealing --author "6c11fa9f82689aa0d4d41f2ed3e3a80932707b46" --extra-data "Parity on Ubuntu Core ethcore.io" -w --webapp-interface "0.0.0.0" --webapp-user "parity" --webapp-pass "parity"
+
+# never reach this
+exit 1
