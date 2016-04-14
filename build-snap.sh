@@ -1,7 +1,7 @@
 !#bin/sh
 echo "get latest ARM build"
-wget https://github.com/ethcore/parity-snappy/releases/download/v1.1.0-dev-unstable.1/parity-arm-v1.1.0-dev-unstable.1.tar.gz
-tar -xvf parity-arm-v1.1.0-dev-unstable.1.tar.gz parity-arm
+wget https://github.com/ethcore/parity-snappy/releases/download/v1.1.0-dev-unstable.3/parity-arm-v1.1.0-dev-unstable.3.tar.gz
+tar -xvf parity-arm-v1.1.0-dev-unstable.3.tar.gz parity-arm
 echo "check file"
 file parity-arm
 echo "copy parity ARM binary to /snap/bin/arm-linux-gnueabihf/geth"
