@@ -41,7 +41,6 @@ RUN git clone https://github.com/ethcore/parity && \
 	cat .cargo/config && \
 	rustc -vV && \
 	cargo -V && \
-	cargo update && \
 	cargo build --target arm-unknown-linux-gnueabihf --release --verbose && \
 	ls /build/parity/target/arm-unknown-linux-gnueabihf/release/parity &&	\
 	file /build/parity/target/arm-unknown-linux-gnueabihf/release/parity && \
