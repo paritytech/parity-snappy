@@ -2,6 +2,8 @@
 ## [Snappy](https://github.com/ubuntu-core/snappy)
 Snappy is part of Ubuntu Core and enables a fully transactional Ubuntu system.
 
+##Parity for ARM devices
+
 ## Get started
 
 All information is available in our [wiki] (https://github.com/ethcore/parity-snappy/wiki/Parity-on-ARM)
