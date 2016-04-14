@@ -1,0 +1,27 @@
+name: parity
+version: 1.1.0
+vendor: Denis Soldatov aka General-Beck <general-beck@ethcore.io>
+architectures: [armhf]
+icon: meta/ethcore-logo-black-square.png
+source: https://github.com/ethcore/parity-snappy
+services:
+ - name: parity
+   description: "Parity Ethereum client"
+   start: ./parity
+   ports:
+    external:
+     rpc:
+      port: 8545/tcp
+      negotiable: no
+     p2p:
+      port: 30303/tcp
+      port: 30303/udp
+      negotiable: no
+     webui:
+      port: 8080/tcp
+      negotiable: no
+   caps:
+        - networking
+        - network-service
+        - network-client
+
