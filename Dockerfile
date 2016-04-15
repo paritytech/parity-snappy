@@ -23,7 +23,7 @@ ENV RUST_BACKTRACE 1
 # set compilers
 ENV CXX arm-linux-gnueabihf-g++ 
 ENV CC arm-linux-gnueabihf-gcc 
-ENV CFLAGS=-m32
+ENV CFLAGS=m32
 #ENV CXXFLAGS=-m32
 ENV TARGET=arm-unknown-linux-gnueabihf
 # build parity
