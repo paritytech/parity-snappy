@@ -23,6 +23,7 @@ ENV RUST_BACKTRACE 1
 # set compilers
 ENV CXX arm-linux-gnueabihf-g++ 
 ENV CC arm-linux-gnueabihf-gcc 
+ENV TARGET=arm-unknown-linux-gnueabihf
 # build parity
 RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
