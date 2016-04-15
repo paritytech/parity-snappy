@@ -26,8 +26,6 @@ ENV CC arm-linux-gnueabihf-gcc
 #ENV CFLAGS -m32
 ENV ARCH arm
 ENV CROSS_COMPILE arm-unknown-linux-gnueabihf
-ENV AR arm-unknown-linux-gnueabihf-ar
-ENV LD arm-unknown-linux-gnueabihf-ld
 #ENV CXXFLAGS=-m32
 ENV TARGET arm-unknown-linux-gnueabihf
 # build parity
