@@ -20,8 +20,16 @@ case $platform in
         echo "unknown platform for start parity: $platform. coming soon..."
         ;;
 esac
+#set data dir
+PARITY_HOME=${SNAP_APP_DATA_PATH}
+export PARITY_HOME
+#check first run - create data dir
+$verbose && echo "parity home:" $PARITY_HOME
+mkdir -p $PARITY_HOME/.parity #PATH for db
+mkdir -p $PARITY_HOME/.parity/keys #PATH for keys
+ll $PARITY_HOME/.parity/ 
 # start parity daemon
-exec ${SNAP_APP_PATH}/bin/$plat_abi/parity --pruning "fast" --rpc --rpcport "8545" --rpcaddr "0.0.0.0" --identity "Ubuntu Core $plat_abi"  --force-sealing --author "6c11fa9f82689aa0d4d41f2ed3e3a80932707b46" --extra-data "Parity on Ubuntu Core ethcore.io" -w --webapp-interface "0.0.0.0" --webapp-user "parity" --webapp-pass "parity"
+exec ${SNAP_APP_PATH}/bin/$plat_abi/parity --keys-path $PARITY_HOME/.parity/keys -d "$PARITY_HOME/.parity" --pruning "fast" --rpc --rpcport "8545" --rpcaddr "0.0.0.0" --identity "Ubuntu Core $plat_abi"  --force-sealing --author "6c11fa9f82689aa0d4d41f2ed3e3a80932707b46" --extra-data "Parity on Ubuntu Core ethcore.io" -w --webapp-interface "0.0.0.0" --webapp-user "parity" --webapp-pass "parity"
 
 # never reach this
 exit 1
