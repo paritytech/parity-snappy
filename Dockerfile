@@ -23,7 +23,7 @@ ENV RUST_BACKTRACE 1
 # set compilers
 ENV CXX arm-linux-gnueabihf-g++ 
 ENV CC arm-linux-gnueabihf-gcc 
-ENV CFLAGS=m32
+#ENV CFLAGS=m32
 #ENV CXXFLAGS=-m32
 ENV TARGET=arm-unknown-linux-gnueabihf
 # build parity
@@ -44,6 +44,7 @@ RUN git clone https://github.com/ethcore/parity && \
 	cat .cargo/config && \
 	rustc -vV && \
 	cargo -V && \
+	cargo update && \
 	cargo build --target arm-unknown-linux-gnueabihf --release --verbose && \
 	ls /build/parity/target/arm-unknown-linux-gnueabihf/release/parity &&	\
 	file /build/parity/target/arm-unknown-linux-gnueabihf/release/parity && \
