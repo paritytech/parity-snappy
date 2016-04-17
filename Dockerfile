@@ -11,7 +11,7 @@ RUN apt-get -y update && \
 
 # install multirust
 RUN curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
-ENV RUST_TARGETS="arm-unknown-linux-gnueabihf"
+ENV RUST_TARGETS="armv7-unknown-linux-gnueabihf"
 # multirust override beta
 #RUN multirust override beta
 
