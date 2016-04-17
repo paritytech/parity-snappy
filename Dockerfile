@@ -24,9 +24,8 @@ ENV RUST_BACKTRACE 1
 ENV CXX arm-linux-gnueabihf-g++ 
 ENV CC arm-linux-gnueabihf-gcc 
 ENV ARCH arm
-ENV CROSS_COMPILE armv7-unknown-linux-gnueabihf
-#ENV CXXFLAGS=-m32
-ENV TARGET armv7-unknown-linux-gnueabihf
+ENV CROSS_COMPILE arm-unknown-linux-gnueabihf
+ENV TARGET arm-unknown-linux-gnueabihf
 # build parity
 RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
