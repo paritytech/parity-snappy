@@ -10,7 +10,7 @@ RUN apt-get -y update && \
     apt-get clean
 
 # install multirust
-RUN curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes
+RUN curl -sf https://raw.githubusercontent.com/brson/multirust/master/quick-install.sh | sh
 ENV RUST_TARGETS="arm-unknown-linux-gnueabihf"
 # multirust override beta
 #RUN multirust override beta
@@ -23,7 +23,6 @@ ENV RUST_BACKTRACE 1
 # set compilers
 ENV CXX arm-linux-gnueabihf-g++ 
 ENV CC arm-linux-gnueabihf-gcc 
-#ENV CFLAGS -m32
 ENV ARCH arm
 ENV CROSS_COMPILE arm-unknown-linux-gnueabihf
 #ENV CXXFLAGS=-m32
