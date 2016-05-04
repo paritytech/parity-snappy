@@ -28,8 +28,8 @@ ENV CROSS_COMPILE aarch64-unknown-linux-gnu
 ENV TARGET aarch64-unknown-linux-gnu
 # build parity
 RUN git clone https://github.com/ethcore/parity && \
-	ccd parity && \
-	git checkout master && \
+	cd parity && \
+	git checkout aarch64 && \
 	wget https://github.com/thkaw/mio/archive/v0.5.x.tar.gz && \
 	tar -xf v0.5.x.tar.gz && \
 	rm -rf v0.5.x.tar.gz && \
