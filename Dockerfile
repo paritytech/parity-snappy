@@ -4,7 +4,7 @@ WORKDIR /build
 RUN apt-get -y update && \
 	apt-get install -y --force-yes --no-install-recommends \
 	curl git make g++ gcc-aarch64-linux-gnu g++-aarch64-linux-gnu \
-	libc6-aarch64-cross libc6-dev-aarch64-cross wget file ca-certificates \
+	libc6-arm64-cross libc6-dev-arm64-cross wget file ca-certificates \
 	binutils-aarch64-linux-gnu \
 	&& \
     apt-get clean
