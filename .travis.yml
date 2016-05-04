@@ -23,6 +23,7 @@ deploy:
 branches:
   only:
   - master
+  - aarch64
   - "/^v\\d+\\.\\d+\\.\\d+.*$/"
 notifications:
   slack:
