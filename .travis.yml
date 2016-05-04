@@ -12,7 +12,7 @@ script:
   parity-arm
 - docker stop parity-arm
 - docker rm parity-arm
-- tar czf parity-arm-${TRAVIS_TAG}.tar.gz *
+- tar czf parity-arm64-${TRAVIS_TAG}.tar.gz *
 deploy:
   provider: releases
   api_key:
