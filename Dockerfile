@@ -39,7 +39,7 @@ RUN git clone https://github.com/ethcore/parity && \
 	linker = "arm-linux-gnueabihf-gcc"\n'\
 	>>.cargo/config && \
 	cat .cargo/config && \
-	find . -name '*.toml' -type f -exec sed -i -e 's/nix    = \"0.4.2\"/nix    = \"0.5\"/g' && \
+	find . -name '*.toml' -type f -exec sed -i -e 's/nix    = \"0.4.2\"/nix    = \"0.5\"/g' {} \;&& \
 	rustc -vV && \
 	cargo -v && \
 	cargo build --target arm-unknown-linux-gnueabihf --release --verbose && \
