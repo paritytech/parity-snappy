@@ -18,8 +18,8 @@ deploy:
   api_key:
     secure: "0q9NdWlRDLeltHYes/Zv9QHLRlWgjTs8tmjSciogjHsN5tkFABp5PyGAUhxNWQ3Hz5nIIUnWTQOVOCXvZNn0IJxZ14XFbW73FSRwQTAk26QxjU/QRBbroqDF7O0tpSh8c4Nssgn+7O4Zd906k4JtL9Jk6FSdYFeMfzt8a6C2tkMjxukmVQl5g2Z/TrTD8DbWTutVOYRNfOc44bh8snbD0vFDsdfdtJFL5VNiXF7VoA7hwUfeg4KGV6Aj3MWis1c/DtvV7wjUPxT1aKy/drPja9FIWstWQnFELBwuwfL0ZOtfVO8JuCKC2Swi8qdMUYGNM/JKPlRcDn/5tJsb9r1muMc9gqJfIQYPjZmFR7ZqfgPRjbdaJscoX0Zn4KAvOsRtoeOfBQB8wX6VeCxjc1es+oqDDpveWgFZuMj8k+NhNxxhv0yMCtS9ueZGNF1YSONtFw0xjq25VTxU06kNV2OBqvmb9Ea5km2Vr8uq5QGZ4UBUaEmbqQWy85JIw8xjVou3G8hqbYwUazxvwNYgVemwl13DiV43BfeWq0XOYBWTQMidf8faRnjGfZWZpDRrkx4obp0TEF6Hm+iafYdthr60sRcJydWEltshplMyKhRw61YToNpiSueGXAncJlZkSVxr/xvThPmqSPlPSeaUvIDuR057Efn9dncN+bjH+SXroZo="
   file: parity-arm-${TRAVIS_TAG}.tar.gz
-  #on:
-   # tags: true
+  on:
+    tags: true
 branches:
   only:
   - aarch64
