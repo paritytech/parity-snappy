@@ -8,7 +8,7 @@ before_install:
 script:
 - docker start parity-arm
 - docker ps
-- docker cp parity-arm:/build/parity/target/arm-unknown-linux-gnueabihf/release/parity
+- docker cp parity-arm:/build/parity/target/aarch64-unknown-linux-gnu/release/parity
   parity-arm
 - docker stop parity-arm
 - docker rm parity-arm
@@ -22,7 +22,7 @@ deploy:
     tags: true
 branches:
   only:
-  - master
+  - aarch64
   - "/^v\\d+\\.\\d+\\.\\d+.*$/"
 notifications:
   slack:
