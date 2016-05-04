@@ -30,9 +30,6 @@ ENV TARGET arm-unknown-linux-gnueabihf
 RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
 	git checkout master && \
-	wget https://github.com/nix-rust/nix/archive/v0.5.0.tar.gz && \
-	tar -xf v0.5.0.tar.gz && \
-	rm -rf v0.5.0.tar.gz && \
 	wget https://github.com/thkaw/mio/archive/v0.5.x.tar.gz && \
 	tar -xf v0.5.x.tar.gz && \
 	rm -rf v0.5.x.tar.gz && \
@@ -42,6 +39,7 @@ RUN git clone https://github.com/ethcore/parity && \
 	linker = "arm-linux-gnueabihf-gcc"\n'\
 	>>.cargo/config && \
 	cat .cargo/config && \
+	find . -name '*.toml' -type f | xargs sed -i -e 's/nix    = \"0.4.2\"/nix    = \"0.5\"/g' \
 	rustc -vV && \
 	cargo -V && \
 	cargo build --target arm-unknown-linux-gnueabihf --release --verbose && \
