@@ -31,8 +31,7 @@ RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
 	git checkout master && \
 	mkdir -p .cargo && \
-  	echo 'paths = ["mio-0.5.x"]\n\
-	[target.aarch64-unknown-linux-gnu]\n\
+  	echo '[target.aarch64-unknown-linux-gnu]\n\
 	linker = "aarch64-linux-gnu-gcc"\n'\
 	>>.cargo/config && \
 	cat .cargo/config && \
