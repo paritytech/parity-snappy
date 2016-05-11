@@ -30,9 +30,6 @@ ENV TARGET aarch64-unknown-linux-gnu
 RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
 	git checkout master && \
-	wget https://github.com/thkaw/mio/archive/v0.5.x.tar.gz && \
-	tar -xf v0.5.x.tar.gz && \
-	rm -rf v0.5.x.tar.gz && \
 	mkdir -p .cargo && \
   	echo 'paths = ["mio-0.5.x"]\n\
 	[target.aarch64-unknown-linux-gnu]\n\
