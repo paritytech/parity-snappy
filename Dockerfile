@@ -31,8 +31,7 @@ RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
 	git checkout master && \
 	mkdir -p .cargo && \
-  	echo 'paths = ["mio-0.5.x"]\n\
-	[target.arm-unknown-linux-gnueabihf]\n\
+  	echo '[target.arm-unknown-linux-gnueabihf]\n\
 	linker = "arm-linux-gnueabihf-gcc"\n'\
 	>>.cargo/config && \
 	cat .cargo/config && \
