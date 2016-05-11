@@ -30,18 +30,14 @@ ENV TARGET arm-unknown-linux-gnueabihf
 RUN git clone https://github.com/ethcore/parity && \
 	cd parity && \
 	git checkout master && \
-	wget https://github.com/thkaw/mio/archive/v0.5.x.tar.gz && \
-	tar -xf v0.5.x.tar.gz && \
-	rm -rf v0.5.x.tar.gz && \
 	mkdir -p .cargo && \
   	echo 'paths = ["mio-0.5.x"]\n\
 	[target.arm-unknown-linux-gnueabihf]\n\
 	linker = "arm-linux-gnueabihf-gcc"\n'\
 	>>.cargo/config && \
 	cat .cargo/config && \
-	find . -name '*.toml' -type f -exec sed -i -e 's/nix    = \"0.4.2\"/nix    = \"0.5\"/g' {} \;&& \
 	rustc -vV && \
-	#cargo -v && \
+
 	cargo build --target arm-unknown-linux-gnueabihf --release --verbose && \
 	ls /build/parity/target/arm-unknown-linux-gnueabihf/release/parity &&	\
 	file /build/parity/target/arm-unknown-linux-gnueabihf/release/parity && \
